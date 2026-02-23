@@ -11,5 +11,5 @@ jobs:
     name: Call Reusable Next.js CI Workflow
     uses: ./.github/workflows/reuseablenext-workflow.yml
     with:
-      node-version: '18'
+      node-version: '20.9.0'
       environment_name: 'production'
