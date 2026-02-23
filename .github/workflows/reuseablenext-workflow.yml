@@ -54,7 +54,12 @@ jobs:
         run: npm run lint
 
       - name: 5. Run tests
-        run: npm test
+        run: |
+          if node -e "process.exit(require('./package.json').scripts?.test ? 0 : 1)"; then
+            npm test
+          else
+            echo "No test script found, skipping"
+          fi
 
       - name: 6. Build application
         run: npm run build
