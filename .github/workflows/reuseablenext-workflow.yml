@@ -121,19 +121,19 @@ jobs:
             echo "PORT is SET which is ${{ secrets.PORT }}"
           fi
 
-          if [ -z "${{ vars.ENVIRONMENT }}"]; then
+          if [ -z "${{ vars.ENVIRONMENT }}" ]; then
             echo "ENVIRONMENT is EMPTY"
           else
             echo "ENVIRONMENT is SET which is ${{ vars.ENVIRONMENT }}"
           fi
 
-          if [ -z "${{ vars.USERNAME }}"]; then
+          if [ -z "${{ vars.USERNAME }}" ]; then
             echo "USERNAME is EMPTY"
           else
             echo "USERNAME is SET which is ${{ vars.USERNAME }}"
           fi
 
-          if [ -z "${{ vars.PORT }}"]; then
+          if [ -z "${{ vars.PORT }}" ]; then
             echo "PORT is EMPTY"
           else
             echo "PORT is SET which is ${{ vars.PORT }}"
