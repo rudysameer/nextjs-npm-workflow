@@ -1,0 +1,1 @@
+this is readme file for test for trigger in the github repository. i have set environment variables and lets see the production workflow takes it or not
