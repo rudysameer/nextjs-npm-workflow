@@ -124,7 +124,7 @@ jobs:
           if [ -z "${{ var.ENVIRONMENT }}"]; then
             echo "ENVIRONMENT is EMPTY"
           else
-            echo "ENVIRONMENT is SET which is ${{ var.ENVIRONMENT }}"
+            echo "ENVIRONMENT is SET which is ${{ vars.ENVIRONMENT }}"
           fi
 
 
