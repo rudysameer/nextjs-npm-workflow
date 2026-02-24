@@ -92,6 +92,36 @@ jobs:
             --exclude='node_modules' \
             ./ /tmp/deploy/
 
+      - name: Debug secrets presence
+        run: |
+          if [ -z "${{ secrets.SERVER_HOST }}" ]; then
+            echo "SERVER_HOST is EMPTY"
+            exit 1
+          else
+            echo "SERVER_HOST is SET which is ${{ secrets.SERVER_HOST }}"
+          fi
+
+          if [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
+            echo "SSH_PRIVATE_KEY is EMPTY"
+            exit 1
+          else
+            echo "SSH_PRIVATE_KEY is SET which is ${{ secrets.SSH_PRIVATE_KEY }}"
+          fi
+
+          if [ -z "${{ secrets.SERVER_USERNAME }}" ]; then
+            echo "SERVER_USERNAME is EMPTY"
+            exit 1
+          else
+            echo "SERVER_USERNAME is SET which is {{ secrets.SERVER_USERNAME }}"
+          fi
+
+          if [ -z "${{ secrets.PORT }}" ]; then
+            echo "PORT is EMPTY"
+            echo "PORT is {{ secrets.PORT }}"
+            exit 1
+          else
+            echo "PORT is SET"
+          fi
 
       - name: 7. Setup SSH
         run: |
