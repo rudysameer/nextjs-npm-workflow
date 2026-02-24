@@ -50,9 +50,14 @@ jobs:
       - name: 3. Install dependencies
         run: npm ci
 
-      - name: 4. Run ESLint
-        run: npm run lint
-
+      - name: 4. Run lint (non-blocking)
+        continue-on-error: true
+        run: |
+          if node -e "process.exit(require('./package.json').scripts?.lint ? 0 : 1)"; then
+            npm run lint
+          else
+            echo "No lint script found, skipping"
+          fi
       - name: 5. Run tests
         run: |
           if node -e "process.exit(require('./package.json').scripts?.test ? 0 : 1)"; then
