@@ -116,9 +116,9 @@ jobs:
           fi
 
           if [ -z "${{ secrets.PORT }}" ]; then
-            echo "PORT is EMPTY"
+            echo "Secrets PORT is EMPTY"
           else
-            echo "PORT is SET which is ${{ secrets.PORT }}"
+            echo "Secrets PORT is SET which is ${{ secrets.PORT }}"
           fi
 
           if [ -z "${{ vars.ENVIRONMENT }}" ]; then
@@ -134,9 +134,9 @@ jobs:
           fi
 
           if [ -z "${{ vars.PORT }}" ]; then
-            echo "PORT is EMPTY"
+            echo "Environment PORT is EMPTY"
           else
-            echo "PORT is SET which is ${{ vars.PORT }}"
+            echo "Environment PORT is SET which is ${{ vars.PORT }}"
           fi
 
 
