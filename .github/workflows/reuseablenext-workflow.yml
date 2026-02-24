@@ -130,7 +130,7 @@ jobs:
           if [ -z "${{ vars.USERNAME }}" ]; then
             echo "USERNAME is EMPTY"
           else
-            echo "USERNAME is SET which is ${{ vars.USERNAME }}"
+            echo "USERNAME is SET which is the ${{ vars.USERNAME }}"
           fi
 
           if [ -z "${{ vars.PORT }}" ]; then
