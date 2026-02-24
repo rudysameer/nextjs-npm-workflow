@@ -98,45 +98,45 @@ jobs:
             echo "SERVER_HOST is EMPTY"
             exit 1
           else
-            echo "SERVER_HOST is SET which is ${{ secrets.SERVER_HOST }}"
+            echo "From Environment Secrets SERVER_HOST is SET which is ${{ secrets.SERVER_HOST }}"
           fi
 
           if [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
             echo "SSH_PRIVATE_KEY is EMPTY"
             exit 1
           else
-            echo "SSH_PRIVATE_KEY is SET which is ${{ secrets.SSH_PRIVATE_KEY }}"
+            echo "From Environment Secrets SSH_PRIVATE_KEY is SET which is ${{ secrets.SSH_PRIVATE_KEY }}"
           fi
 
           if [ -z "${{ secrets.SERVER_USERNAME }}" ]; then
             echo "SERVER_USERNAME is EMPTY"
             exit 1
           else
-            echo "SERVER_USERNAME is SET which is ${{ secrets.SERVER_USERNAME }}"
+            echo "From Environment Secrets SERVER_USERNAME is SET which is ${{ secrets.SERVER_USERNAME }}"
           fi
 
           if [ -z "${{ secrets.PORT }}" ]; then
             echo "Secrets PORT is EMPTY"
           else
-            echo "Secrets PORT is SET which is ${{ secrets.PORT }}"
+            echo "From Environment Secrets PORT is SET which is ${{ secrets.PORT }}"
           fi
 
           if [ -z "${{ vars.ENVIRONMENT }}" ]; then
             echo "ENVIRONMENT is EMPTY"
           else
-            echo "ENVIRONMENT is SET which is ${{ vars.ENVIRONMENT }}"
+            echo "From Environment vars ENVIRONMENT is SET which is ${{ vars.ENVIRONMENT }}"
           fi
 
           if [ -z "${{ vars.USERNAME }}" ]; then
             echo "USERNAME is EMPTY"
           else
-            echo "USERNAME is SET which is ${{ vars.USERNAME }}"
+            echo "From Environment vars USERNAME is SET which is ${{ vars.USERNAME }}"
           fi
 
           if [ -z "${{ vars.PORT }}" ]; then
             echo "Environment PORT is EMPTY"
           else
-            echo "Environment PORT is SET which is the ${{ vars.PORT }}"
+            echo "From Environment vars PORT is SET which is the ${{ vars.PORT }}"
           fi
 
 
