@@ -13,3 +13,4 @@ jobs:
     with:
       node-version: '20.9.0'
       environment_name: 'production'
+    secrets: inherit # This allows the reusable workflow to access secrets from the calling workflow's repository. Make sure to set the required secrets in the repository settings.

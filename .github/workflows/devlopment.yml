@@ -14,3 +14,4 @@
       with:
         node-version: '18'
         environment_name: 'development'
+      secrets: inherit # This allows the reusable workflow to access secrets from the calling workflow's repository. Make sure to set the required secrets in the repository settings.
