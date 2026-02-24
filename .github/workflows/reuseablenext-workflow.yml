@@ -121,7 +121,7 @@ jobs:
             echo "PORT is SET which is ${{ secrets.PORT }}"
           fi
 
-          if [ -z "${{ var.ENVIRONMENT }}"]; then
+          if [ -z "${{ vars.ENVIRONMENT }}"]; then
             echo "ENVIRONMENT is EMPTY"
           else
             echo "ENVIRONMENT is SET which is ${{ vars.ENVIRONMENT }}"
