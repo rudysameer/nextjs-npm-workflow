@@ -87,7 +87,7 @@ jobs:
             --exclude='*.spec.*' \
             --exclude='.vscode' \
             --exclude='.idea' \
-            --exclude='*.tmp' \
+            --exclude='*.tmp' \`
             --exclude='*.temp' \
             --exclude='node_modules' \
             ./ /tmp/deploy/
@@ -117,11 +117,16 @@ jobs:
 
           if [ -z "${{ secrets.PORT }}" ]; then
             echo "PORT is EMPTY"
-            echo "PORT is {{ secrets.PORT }}"
-            exit 1
           else
-            echo "PORT is SET"
+            echo "PORT is SET which is ${{ secrets.PORT }}"
           fi
+
+          if [ -z "${{ var.ENVIRONMENT }}"]; then
+            echo "ENVIRONMENT is EMPTY"
+          else
+            echo "ENVIRONMENT is SET which is ${{ var.ENVIRONMENT }}"
+          fi
+
 
       - name: 7. Setup SSH
         run: |
