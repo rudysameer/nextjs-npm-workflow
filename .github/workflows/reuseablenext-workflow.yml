@@ -136,7 +136,7 @@ jobs:
           if [ -z "${{ vars.PORT }}" ]; then
             echo "Environment PORT is EMPTY"
           else
-            echo "Environment PORT is SET which is ${{ vars.PORT }}"
+            echo "Environment PORT is SET which is the ${{ vars.PORT }}"
           fi
 
 
