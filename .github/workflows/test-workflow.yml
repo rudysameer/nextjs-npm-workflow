@@ -201,5 +201,4 @@ jobs:
           curl -H "Content-Type: application/json" \
             -X POST \
             -d "{\"content\": \"${MESSAGE} Environment: ${{ inputs.environment_name }}. Repository: ${{ github.repository }}. Workflow: ${{ github.workflow }}. Run ID: ${{ github.run_id }}\"}" \
-            ${{ secrets.DISCORD_WEBHOOK_URL }}
-            
+            ${{ secrets.DISCORD_WEBHOOK }}
