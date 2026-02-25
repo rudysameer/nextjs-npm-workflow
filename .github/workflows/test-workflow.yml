@@ -182,25 +182,25 @@ jobs:
           rm -rf /tmp/deploy
 
 
-discord_notification:
-  name: Notify Discord
-  needs: deploy
-  runs-on: ubuntu-latest
-  if: always() # Ensure this runs even if the deploy job fails
-  steps:
-    - name: Send notification to Discord
-      uses: Ilshidur/action-discord@v2
-      with:
-        webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
-        webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-        message: |
-          ${{ needs.deploy.result == 'success' && '✅ Deployment Successful!' || '❌ Deployment Failed!' }}
+  discord_notification:
+    name: Notify Discord
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: always() # Ensure this runs even if the deploy job fails
+    steps:
+      - name: Send notification to Discord
+        uses: Ilshidur/action-discord@v2
+        with:
+          webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+          webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+          message: |
+            ${{ needs.deploy.result == 'success' && '✅ Deployment Successful!' || '❌ Deployment Failed!' }}
 
-          📦 Repository: ${{ github.repository }}
-          🌿 Branch: ${{ github.ref_name }}
-          🌍 Environment: ${{ inputs.environment_name }}
-          📝 Commit: ${{ github.sha }}
-          🔗 Workflow Run: ${{ github.run_id }}
-          👤 Triggered by: ${{ github.actor }}
-          🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            📦 Repository: ${{ github.repository }}
+            🌿 Branch: ${{ github.ref_name }}
+            🌍 Environment: ${{ inputs.environment_name }}
+            📝 Commit: ${{ github.sha }}
+            🔗 Workflow Run: ${{ github.run_id }}
+            👤 Triggered by: ${{ github.actor }}
+            🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
       
