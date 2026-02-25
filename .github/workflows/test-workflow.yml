@@ -213,7 +213,7 @@ discord_notification:
     - name: Send Discord Notification
       uses: discord-webhook/action@v1
       with:
-        webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
         content: |
           ${{ needs.deploy.result == 'success' && '✅ Deployment Successful!' || '❌ Deployment Failed!' }}
 
