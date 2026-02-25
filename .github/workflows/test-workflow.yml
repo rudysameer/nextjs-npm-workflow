@@ -203,23 +203,23 @@ jobs:
   #           -d "{\"content\": \"${MESSAGE} Environment: ${{ inputs.environment_name }}. Repository: ${{ github.repository }}. Workflow: ${{ github.workflow }}. Run ID: ${{ github.run_id }}\"}" \
   #           ${{ secrets.DISCORD_WEBHOOK }}
 
-discord_notification:
-  name: Notify Discord
-  needs: deploy
-  runs-on: ubuntu-latest
-  if: always()
+  discord_notification:
+    name: Notify Discord
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: always()
 
-  steps:
-    - name: Send Discord Notification
-      uses: discord-webhook/action@v1
-      with:
-        webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-        content: |
-          ${{ needs.deploy.result == 'success' && '✅ Deployment Successful!' || '❌ Deployment Failed!' }}
+    steps:
+      - name: Send Discord Notification
+        uses: discord-webhook/action@v1
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+          content: |
+            ${{ needs.deploy.result == 'success' && '✅ Deployment Successful!' || '❌ Deployment Failed!' }}
 
-          📦 Repository: ${{ github.repository }}
-          🌿 Branch: ${{ github.ref_name }}
-          🌍 Environment: ${{ inputs.environment_name }}
-          👤 Triggered by: ${{ github.actor }}
+            📦 Repository: ${{ github.repository }}
+            🌿 Branch: ${{ github.ref_name }}
+            🌍 Environment: ${{ inputs.environment_name }}
+            👤 Triggered by: ${{ github.actor }}
 
-          🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
