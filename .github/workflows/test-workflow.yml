@@ -182,31 +182,31 @@ jobs:
           rm -rf /tmp/deploy
 
 
-discord_notification:
-  name: Notify Discord
-  needs: deploy
-  runs-on: ubuntu-latest
-  if: always()
-  steps:
-    - name: Send Discord Notification
-      run: |
-        STATUS="${{ needs.deploy.result }}"
+  discord_notification:
+    name: Notify Discord
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Send Discord Notification
+        run: |
+          STATUS="${{ needs.deploy.result }}"
 
-        if [ "$STATUS" = "success" ]; then
-          MESSAGE="✅ Deployment Successful!"
-        else
-          MESSAGE="❌ Deployment Failed!"
-        fi
+          if [ "$STATUS" = "success" ]; then
+            MESSAGE="✅ Deployment Successful!"
+          else
+            MESSAGE="❌ Deployment Failed!"
+          fi
 
-        curl -H "Content-Type: application/json" \
-        -X POST \
-        -d '{
-          "content": "'"$MESSAGE"'
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d '{
+            "content": "'"$MESSAGE"'
 
-        📦 Repository: ${{ github.repository }}
-        🌿 Branch: ${{ github.ref_name }}
-        🌍 Environment: ${{ inputs.environment_name }}
-        👤 Triggered by: ${{ github.actor }}
+          📦 Repository: ${{ github.repository }}
+          🌿 Branch: ${{ github.ref_name }}
+          🌍 Environment: ${{ inputs.environment_name }}
+          👤 Triggered by: ${{ github.actor }}
 
-        🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-        }' ${{ secrets.DISCORD_WEBHOOK }}  
+          🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }' ${{ secrets.DISCORD_WEBHOOK }}  
