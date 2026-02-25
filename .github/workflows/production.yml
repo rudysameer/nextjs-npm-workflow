@@ -9,7 +9,8 @@ on:
 jobs:
   call-reusable:
     name: Call Reusable Next.js CI Workflow
-    uses: ./.github/workflows/reuseablenext-workflow.yml
+    # uses: ./.github/workflows/reuseablenext-workflow.yml
+    uses: ./.github/workflows/test-workflow.yml
     with:
       node-version: '20.9.0'
       environment_name: 'production'
