@@ -154,16 +154,6 @@ jobs:
           fi
 
 
-      - name: Test SSH Connection
-        run: |
-          ssh -i ~/.ssh/deploy_key \
-            -o ConnectTimeout=10 \
-            -o StrictHostKeyChecking=no \
-            -o UserKnownHostsFile=/dev/null \
-            -o LogLevel=ERROR \
-            ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} \
-            "echo 'SSH connection successful'"
-
       - name: 7. Prepare deployment directory locally for testing in the runner
         run: |
           mkdir -p /tmp/server/${{ env.REPO_NAME }}
