@@ -1,5 +1,5 @@
 name: Reuseable Next.js CI Workflow
-
+#updated secret
 on:
   workflow_call:
     # Definin the inputs that the calling workflow must provide
